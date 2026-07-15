@@ -1,0 +1,40 @@
+<!-- templates/game.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="game">
+  <div class="topbar">
+    <select id="category">
+      <option value="">All</option>
+      <option>Gaudi</option>
+      <option>Football</option>
+      <option>History</option>
+      <option>Food</option>
+      <option>Metro</option>
+    </select>
+    <select id="difficulty">
+      <option value="">Any</option>
+      <option>Easy</option>
+      <option>Medium</option>
+      <option>Hard</option>
+    </select>
+    <button id="nextBtn">Next Question</button>
+    <div id="timer">10</div>
+    <div id="score">Score: 0</div>
+  </div>
+
+  <div id="qcard" class="card">
+    <img id="qimg" style="display:none;" />
+    <h3 id="qtext"></h3>
+    <div class="options">
+      <button class="opt" data-opt="A"></button>
+      <button class="opt" data-opt="B"></button>
+      <button class="opt" data-opt="C"></button>
+      <button class="opt" data-opt="D"></button>
+    </div>
+    <p id="feedback"></p>
+  </div>
+
+  <a class="btn" href="{{ url_for('end_game') }}">End Game</a>
+</div>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+{% endblock %}

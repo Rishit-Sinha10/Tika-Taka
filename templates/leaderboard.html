@@ -1,0 +1,14 @@
+<!-- templates/leaderboard.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>Leaderboard</h2>
+<table>
+  <thead><tr><th>User</th><th>Score</th><th>When</th></tr></thead>
+  <tbody>
+    {% for r in rows %}
+      <tr><td>{{ r.username }}</td><td>{{ r.score }}</td><td>{{ r.created_at }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a class="btn" href="{{ url_for('start_game') }}">Play again</a>
+{% endblock %}
